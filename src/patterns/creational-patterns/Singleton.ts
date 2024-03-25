@@ -10,19 +10,24 @@ class Singleton {
 
   static getInstance(): Singleton {
     if (!Singleton.instance) {
-      Singleton.instance = new Singleton()
+      Singleton.instance = new Singleton();
     }
 
-    return Singleton.instance
+    return Singleton.instance;
   }
 
   setValue(val: number): void {
-    Singleton.value = val
+    Singleton.value = val;
   }
 
   getValue(): number {
-    return Singleton.value
+    return Singleton.value;
   }
 }
 
-export default Singleton
+const singletonInstance1 = Singleton.getInstance();
+const singletonInstance2 = Singleton.getInstance();
+singletonInstance1.setValue(10);
+
+console.log('Singleton 1 - ', singletonInstance1.getValue());
+console.log('Singleton 2 - ', singletonInstance2.getValue());
