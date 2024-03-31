@@ -1,6 +1,9 @@
 // Design patterns
 // import './patterns/creational-patterns/Singleton.js';
 // import './patterns/creational-patterns/Prototype.js';
+// import './patterns/creational/Factory.js';
+import './patterns/structural/Decorator.js';
 
 // Data Structures
-import './data-structures/linked-lists/SinglyList.js';
+// import './dataStructures/linkedLists/SinglyList.js';
+// import './dataStructures/hashTable/HashTable.js';
