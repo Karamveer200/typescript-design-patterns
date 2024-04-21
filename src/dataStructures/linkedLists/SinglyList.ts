@@ -1,11 +1,6 @@
 type NodeType = Node | null | undefined;
 
-interface INode {
-  val: number;
-  next: NodeType;
-}
-
-class Node implements INode {
+class Node {
   val: number;
   next: NodeType;
 
