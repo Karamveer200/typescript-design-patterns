@@ -98,6 +98,33 @@ class BST {
 
     return value < root!?.value ? this.findHelper(root!?.left, value) : this.findHelper(root!?.right, value);
   }
+
+  //      10
+  //    6    15
+  //  3   8    20
+  // ans - [10, 6, 15, 3, 8, 20]
+  bfsTraversal() {
+    const queue = [];
+    const visited = [];
+
+    const currentNode = this.root;
+
+    queue.push(currentNode);
+
+    while (queue.length) {
+      const curr = queue.shift();
+      visited.push(curr);
+
+      if (curr?.left) {
+        queue.push(curr.left);
+      }
+      if (curr?.right) {
+        queue.push(curr.right);
+      }
+    }
+
+    return visited.map((item) => item!.value);
+  }
 }
 
 const tree = new BST();
@@ -137,3 +164,21 @@ console.log('insert 4 - ', tree.insert(4));
 console.log('insert 20 - ', tree.insert(20));
 console.log('FIND 4 - ', tree.find(4));
 console.log('FIND 20 - ', tree.find(20));
+
+console.log('----------------------\n');
+
+tree.remove(4);
+tree.remove(20);
+tree.remove(10);
+tree.remove(6);
+
+console.log('----------------------\n');
+
+console.log('insert 10 - ', tree.insert(10));
+console.log('insert 6 - ', tree.insert(6));
+console.log('insert 15 - ', tree.insert(15));
+console.log('insert 3 - ', tree.insert(3));
+console.log('insert 8 - ', tree.insert(8));
+console.log('insert 2 - ', tree.insert(20));
+
+console.log('BFS Traversal -, expected - [10, 6, 15, 3, 8, 20], received -  ', tree.bfsTraversal());
